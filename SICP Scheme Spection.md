@@ -10,11 +10,11 @@
 
 The version of Scheme used in this course is not perfectly true to any official specification of the language, though it is perhaps closest to [R5RS](http://www.schemers.org/Documents/Standards/R5RS/), with some features and terminology from other versions, both older and newer. We deviate from the official specifications for several reasons, including ease of implementation (both for the staff in reference implementations and for students in completing the Scheme project) and ease of instruction.
 
-This document and the linked built-in procedure reference are very long and are an attempt to formalize the variant of Scheme used in 61A. Lectures, labs, and discussion are probably better resources for first learning the language. However, the Overview and Terminology section may be useful if you wish to read a more formal description of the language.
+This document and the linked built-in procedure reference are very long and are an attempt to formalize the variant of Scheme used in SICP. Lectures, labs, and discussion are probably better resources for first learning the language. However, the Overview and Terminology section may be useful if you wish to read a more formal description of the language.
 
 You should not find it necessary to read the full references of special forms and built-in procedures, but specific sections may be helpful to reference when working on Scheme assignments and the project (the relevant sections will typically be linked in the assignment itself).
 
-There are, in effect, two different reference implementations of 61A Scheme: the Python-based staff interpreter, provided in Scheme labs and homeworks, and the Dart-based web interpreter ([interpreter](https://scheme.cs61a.org/), [source code](https://github.com/Cal-CS-61A-Staff/dart_scheme)). A completed and correct implementation of the Scheme project, including all extra credit problems, should match the functionality of the staff interpreter, excluding error tracing.
+There are, in effect, two different reference implementations of SICP Scheme: the Python-based staff interpreter, provided in Scheme labs and homeworks, and the Dart-based web interpreter ([interpreter](https://scheme.cs61a.org/), [source code](https://github.com/Cal-CS-61A-Staff/dart_scheme)). A completed and correct implementation of the Scheme project, including all extra credit problems, should match the functionality of the staff interpreter, excluding error tracing.
 
 This document primarily focuses on the Python-based interpreter. The web interpreter should largely match its behavior, but due to the different host language and restraints of the web platform, some inconstencies may exist, for which you can [file issues](https://github.com/Cal-CS-61A-Staff/dart_scheme/issues). Additionally, the web interpreter contains several extra features, such as a diagrammer and JS interopability that are not documented here.
 
@@ -90,7 +90,7 @@ All symbols should be internally stored with lowercase letters. Symbols must not
 
 ### Strings
 
-Unlike other implementations, 61A Scheme has no concept of individual characters. Strings are considered atomic data types in their own right. Strings can be entered into the intepreter as a sequence of characters inside double quotes, with certain characters, such as line breaks and double quotes escaped. As a general rule, if a piece of text would be valid as a JSON key, it should work as a string in 61A Scheme. Strings in 61A Scheme are immutable, in contrast to most other Scheme implementations.
+Unlike other implementations, SICP Scheme has no concept of individual characters. Strings are considered atomic data types in their own right. Strings can be entered into the intepreter as a sequence of characters inside double quotes, with certain characters, such as line breaks and double quotes escaped. As a general rule, if a piece of text would be valid as a JSON key, it should work as a string in SICP Scheme. Strings in SICP Scheme are immutable, in contrast to most other Scheme implementations.
 
 These differences in how strings behave are due to the status of strings in the host languages: Python and Dart both have immutable strings with no concept of individual characters.
 
@@ -175,7 +175,7 @@ Error
 
 Promises are used to define **streams**, which are to lists what promises are to regular values. A stream is defined as a pair where the cdr is a promise that evaluates to another stream or `nil`. The `cons-stream` special form and the `cdr-stream` built-in are provided make the construction and manipulation of streams easier. `(cons-stream a b)` is equivalent to `(cons a (delay b))` while `(cdr-stream x)` is equivalent to `(force (cdr x))`.
 
-> A note for those familiar with promises in languages like JavaScript: although Scheme promises and JS-style promises originate from the [same general concept](https://en.wikipedia.org/wiki/Futures_and_promises), JS promises are best described as a placeholder for a value that is computed asynchronously. The Python-based 61A Scheme interpreter has no concept of asynchrony, so its promises only represent delayed evaluation. The web interpreter continues to use promises in this way, but adds a "future" type to stand in place for JS promises.
+> A note for those familiar with promises in languages like JavaScript: although Scheme promises and JS-style promises originate from the [same general concept](https://en.wikipedia.org/wiki/Futures_and_promises), JS promises are best described as a placeholder for a value that is computed asynchronously. The Python-based SICP Scheme interpreter has no concept of asynchrony, so its promises only represent delayed evaluation. The web interpreter continues to use promises in this way, but adds a "future" type to stand in place for JS promises.
 
 
 
