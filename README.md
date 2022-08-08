@@ -10,8 +10,12 @@
 
 You might find the following references useful:
 
-- [Scheme Specification]
-- [Scheme Built-in Procedure Reference]
+- Scheme Specification
+    - In the same folder with this handout.
+
+- Scheme Built-in Procedure Reference
+    - In the same folder with this handout.
+
 - [Section 3.2](http://composingprograms.com/pages/32-functional-programming.html)
 
 
